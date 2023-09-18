@@ -51,6 +51,7 @@ def menu():
     listappetizer()
     listentrees()
     listdesserts()
+    listdrinks()
 
 
 def intro():
