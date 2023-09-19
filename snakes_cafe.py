@@ -3,6 +3,7 @@ entrees = ["Salmon", "Steak", "Meat Tornado", "A Literal Garden"]
 desserts = ["Ice Cream", "Cake", "Pie"]
 drinks = ["Coffee", "Tea", "Unicorn Tears"]
 stars = "**"
+order = {}
 
 
 def introborder():
@@ -67,8 +68,20 @@ def intro():
 
 def customerprompt():
     promptborder()
-    print(stars + " What would you like to order? " + stars)
-    promptborder()
+    response = input("** What would you like to order? **\n")
+    #promptborder()
+
+    while response != "quit":
+        if response in order.keys():
+            order.update({response: int(order[response]+1)})
+        else:
+            order.update({response: 1})
+        print(f"** An order of {response} has been added to your meal **")
+        response = input("What would you like to order? ** \n")
+    else:
+        if len(order) > 0:
+            print(f"Your order includes {order.items()}")
+
 
 intro()
 menu()
